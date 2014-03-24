@@ -1,0 +1,26 @@
+{
+  "name": "homesite",
+  "version": "0.0.0",
+  "authors": [
+    "Oded Sagir <odedsagir@gmail.com>"
+  ],
+  "description": "blog app",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "marionette": "~1.7.1",
+    "requirejs": "~2.1.11"
+  }
+}

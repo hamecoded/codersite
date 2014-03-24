@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+  head
+    title= 'Oded Sagir Site'    
+    link(href='bower_components/bootstrap/dist/css/bootstrap.css', rel='stylesheet')
+    link(href='css/app.css', rel='stylesheet')
+  body
+    h1 Jade - node template engine
+    #container.col
+      if youAreUsingJade
+        p Yxng
+      else
+        p ssss!
+      p.
+        dff
+    
+    script(type="text/javascript").
+      var require = { baseUrl: "./" };
+    script(type="text/javascript", data-main="js/app.js", src="bower_components/requirejs/require.js")
+   
