@@ -1,18 +1,14 @@
 doctype html
 html(lang="en")
   head
-    title= 'Oded Sagir Site'    
-    link(href='bower_components/bootstrap/dist/css/bootstrap.css', rel='stylesheet')
-    link(href='css/app.css', rel='stylesheet')
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+
+    title= "Oded Sagir Blog"    
+    link(href="bower_components/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
+    link(href="css/app.css", rel="stylesheet")
   body
-    h1 Jade - node template engine
-    #container.col
-      if youAreUsingJade
-        p you are using jade
-      else
-        p no jade!
-      p.
-        dff
+    include blog-home.html
     
     script(type="text/javascript").
       var require = { baseUrl: "./" };
