@@ -7,17 +7,29 @@ Notes API is a *short texts saving* service similar to its physical paper presen
 # Group Notes
 Notes related resources of the **Notes API**
 
-## Notes Collection [/notes]
-### List all Notes [GET]
+## Notes Collection [/posts]
+### List all Posts [GET]
 + Response 200 (application/json)
 
         [{
-          "id": 1, "title": "Jogging in park"
+          "id": 1, 
+          "title"    : "Dancer.js, a high-level audio API",
+            "tags"     : [ "web audio", "audio data", "webgl" ],
+            "category" : "audio",
+            "date"     : "7-30-2012",
+            "preview"  : "dancer.js is a high-level audio API, usable with both Mozilla's Audio Data API and Webkit's Web Audio API with flash fallback, designed to make sweet visualizations.\nhttp://jsantell.github.com/dancer.js\n\n_v0.2.1 (6/15/2012)_\n\nFeatures\n\n---\n* Use real-time audio waveform and frequency data and map it to any arbitrary visualization\n* Leverage beat detection into your visualizations\n* Simple API to time callbacks and events to any section of a song\n* Supports Web Audio (webkit), Audio Data (mozilla) and flash fallback (v9+)\n* Extensible framework supporting plugins and custom behaviours",
+            "content"  : "bla bla"
         }, {
-          "id": 2, "title": "Pick-up posters from post-office"
+          "id": 2,
+            "title"    : "Dust.js, a high-level templating API",
+            "tags"     : [ "web", "templating" ],
+            "category" : "templating",
+            "date"     : "7-13-2012",
+            "preview"  : "ffgfdkjsh  make sweet visualizations.\nhttp://jsantell.github.com/dancer.js\n\n_v0.2.1 (6/15/2012)_\n\nFeatures\n\n---\n* Use real-time audio waveform and frequency data and map it to any arbitrary visualization\n* Leverage beat detection into your visualizations\n* Simple API to time callbacks and events to any section of a song\n* Supports Web Audio (webkit), Audio Data (mozilla) and flash fallback (v9+)\n* Extensible framework supporting plugins and custom behaviours",
+            "content"  : "bla bla 2"
         }]
 
-### Create a Note [POST]
+### Create a Post [POST]
 + Request (application/json)
 
         { "title": "Buy cheese and bread for breakfast." }
@@ -26,13 +38,13 @@ Notes related resources of the **Notes API**
 
         { "id": 3, "title": "Buy cheese and bread for breakfast." }
 
-## Note [/notes/{id}]
+## Note [/posts/{id}]
 A single Note object with all its details
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
 
-### Retrieve a Note [GET]
+### Retrieve a Post [GET]
 + Response 200 (application/json)
 
     + Header
@@ -43,5 +55,5 @@ A single Note object with all its details
 
             { "id": 2, "title": "Pick-up posters from post-office" }
 
-### Remove a Note [DELETE]
+### Remove a Post [DELETE]
 + Response 204
