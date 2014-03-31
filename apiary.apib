@@ -18,7 +18,7 @@ Notes related resources of the **Notes API**
             "category" : "audio",
             "date"     : "7-30-2012",
             "preview"  : "dancer.js is a high-level audio API, usable with both Mozilla's Audio Data API and Webkit's Web Audio API with flash fallback, designed to make sweet visualizations.\nhttp://jsantell.github.com/dancer.js\n\n_v0.2.1 (6/15/2012)_\n\nFeatures\n\n---\n* Use real-time audio waveform and frequency data and map it to any arbitrary visualization\n* Leverage beat detection into your visualizations\n* Simple API to time callbacks and events to any section of a song\n* Supports Web Audio (webkit), Audio Data (mozilla) and flash fallback (v9+)\n* Extensible framework supporting plugins and custom behaviours",
-            "content"  : "bla bla"
+            "content"  : null
         }, {
           "id": 2,
             "title"    : "Dust.js, a high-level templating API",
@@ -26,7 +26,7 @@ Notes related resources of the **Notes API**
             "category" : "templating",
             "date"     : "7-13-2012",
             "preview"  : "ffgfdkjsh  make sweet visualizations.\nhttp://jsantell.github.com/dancer.js\n\n_v0.2.1 (6/15/2012)_\n\nFeatures\n\n---\n* Use real-time audio waveform and frequency data and map it to any arbitrary visualization\n* Leverage beat detection into your visualizations\n* Simple API to time callbacks and events to any section of a song\n* Supports Web Audio (webkit), Audio Data (mozilla) and flash fallback (v9+)\n* Extensible framework supporting plugins and custom behaviours",
-            "content"  : "bla bla 2"
+            "content"  : null
         }]
 
 ### Create a Post [POST]
@@ -53,7 +53,14 @@ A single Note object with all its details
 
     + Body
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+            { "id": 1,
+                "title"    : "Dancer.js, a high-level audio API",
+                "tags"     : [ "web audio", "audio data", "webgl" ],
+                "category" : "audio",
+                "date"     : "7-30-2012",
+                "preview"  : "dancer.js is a high-level audio API, usable with both Mozilla's Audio Data API and Webkit's Web Audio API with flash fallback, designed to make sweet visualizations.\nhttp://jsantell.github.com/dancer.js\n\n_v0.2.1 (6/15/2012)_\n\nFeatures\n\n---\n* Use real-time audio waveform and frequency data and map it to any arbitrary visualization\n* Leverage beat detection into your visualizations\n* Simple API to time callbacks and events to any section of a song\n* Supports Web Audio (webkit), Audio Data (mozilla) and flash fallback (v9+)\n* Extensible framework supporting plugins and custom behaviours",
+                "content"  : "full post bla bla"
+            }
 
 ### Remove a Post [DELETE]
 + Response 204
