@@ -4,6 +4,7 @@ define({
         // ---------
         "vendor":"bower_components",
         "underscore":"bower_components/underscore/underscore",
+        "dust":"bower_components/dustjs-linkedin/dist/dust-full",
         "jquery":"bower_components/jquery/dist/jquery",
         "backbone":"bower_components/backbone/backbone",
         "backbone.wreqr":"bower_components/backbone.wreqr/lib/backbone.wreqr",
@@ -23,6 +24,9 @@ define({
         "templates":"assets/templates",*/
     },
     shim:{
+        "dust":{
+            "exports":"dust"
+        },
         "underscore":{
             // Exports the global window._ object
             "exports":"_"
@@ -33,7 +37,8 @@ define({
         "backbone":{
             "exports":"Backbone",
             "deps":[
-                "underscore"
+                "underscore",
+                "dust"
             ]
         },
         "backbone.wreqr":{
