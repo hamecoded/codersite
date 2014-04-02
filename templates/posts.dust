@@ -1,7 +1,9 @@
 <ul class="posts">
-{#posts}
-	{>post /}
-{/posts}
+
 </ul>
 
-<h1>paginate</h1>
+ <!-- pager -->
+<ul class="pager">
+    <li class="previous"><a href="#next">&larr; Older</a></li>
+    <li class="next"><a href="#prev">Newer &rarr;</a></li>
+</ul>

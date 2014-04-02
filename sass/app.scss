@@ -8,6 +8,22 @@ footer {
 	margin: 50px 0;
 }
 
+//loading indicator
+#loading-indicator {
+	position: absolute;
+	left: -2px;
+	top: 16px;
+}
+@media (min-width: 768px) {
+	#loading-indicator {
+		left: -20px;
+	}
+}
+//EndOF loading indicator
+
+.navbar-header{
+	position: relative;
+}
 
 ul.posts{
 	list-style: none;
