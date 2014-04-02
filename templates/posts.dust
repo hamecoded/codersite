@@ -1,0 +1,7 @@
+<ul class="posts">
+{#posts}
+	{>post /}
+{/posts}
+</ul>
+
+<h1>paginate</h1>

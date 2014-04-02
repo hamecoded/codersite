@@ -12,16 +12,17 @@ define({
         "marionette":"bower_components/marionette/lib/backbone.marionette",
         "bootstrap":"bower_components/bootstrap/dist/js/bootstrap",
 
-        // Application Folders
+        // Require Modules to be used as pragmas
+        // ---------
+        "text": "bower_components/requirejs-text/text",
+
+        // Backbone Folder Structure
         // -------------------
-        /*"modules":"src/modules",
-        "models":"src/models",
-        "collections":"src/collections",
-        "controllers":"src/controllers",
-        "routers":"src/routers",
-        "layouts":"src/views/layouts",
-        "views":"src/views",
-        "templates":"assets/templates",*/
+        "models":"js/models",
+        "collections":"js/collections",
+        "routers":"js/routers",
+        "views":"js/views",
+        "templates":"templates",
     },
     shim:{
         "dust":{

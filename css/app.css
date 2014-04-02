@@ -8,3 +8,10 @@ body {
 footer {
   margin: 50px 0;
 }
+
+/* line 12, ../sass/app.scss */
+ul.posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
