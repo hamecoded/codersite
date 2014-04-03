@@ -22,7 +22,7 @@ define(function(require) {
 		render: function () {
 			var $el= this.$el; //initially as a detached DOM element
 
-			//DOM insert the ListView template
+			// DOM insert the ListView template
 			dust.render("posts",{},function(err,out){
 			    $el.html(out);
 			});
