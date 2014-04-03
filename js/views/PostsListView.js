@@ -7,7 +7,7 @@
  */		
 define(function(require) {
 
-	var PostView= require("views/PostView");
+	var PostView= require("views/PostView");  //http://requirejs.org/docs/1.0/docs/api.html#modulenotes-console
    
     var PostsListView = Backbone.View.extend({
     	initialize: function (options) {

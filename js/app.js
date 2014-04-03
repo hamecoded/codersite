@@ -16,34 +16,11 @@ require(["js/config"], function (baseConfig) {
 		$(document).ajaxComplete(function(event, request, settings) {
 		    $('#loading-indicator').hide();
 		});
-		
+
     	//app specific require
-		require([
-			"collections/PostsCollection", "models/PostModel",
-			"views/PostsListView"
-			], function (PostsCollection, PostModel, PostsListView) {
-       		
-       		require(["text!templates/post.dust", "text!templates/posts.dust"], function(postTmpl, postsTmpl){
-	       		//preload post related templates 
-				var compiled = dust.compile(postTmpl, "post");
-				dust.loadSource(compiled);
-	       			
-				compiled = dust.compile(postsTmpl, "posts");
-				dust.loadSource(compiled);
-	       			
-				//Set Data       			
-	       		var posts= new PostsCollection();
-
-	       		//Set View
-	       		var postList= new PostsListView({
-	       			el: ".container .row .col-lg-8",
-	       			collection: posts
-
-	       		});
-       		});
-
-
-		   
+		require(["routers/BlogRouter"], function (BlogRouter) {
+			new BlogRouter;
+			Backbone.history.start({pushState: true});
 		});
     });
 });

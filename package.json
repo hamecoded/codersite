@@ -10,6 +10,7 @@
   "author": "Oded Sagir",
   "license": "MIT",
   "dependencies": {
-    "connect": "^2.14.3"
+    "connect": "^2.14.3",
+    "express": "^3.5.1"
   }
 }
