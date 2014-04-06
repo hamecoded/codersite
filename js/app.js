@@ -20,7 +20,7 @@ require(["/js/config.js"], function (baseConfig) {
     	//app specific require
 		require(["routers/BlogRouter"], function (BlogRouter) {
 			new BlogRouter;
-			Backbone.history.start({pushState: true});
+			Backbone.history.start({pushState: false});
 		});
     });
 });
