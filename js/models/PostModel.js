@@ -9,7 +9,9 @@ define(function(require) {
     		date: "30-12-2014",
     		preview: "no preview",
     		content: null
-    	}
+    	},
+    	urlRoot: "http://blog4.apiary.io/posts" //for loading independently of being associated to a collection
+
 
     });
    

@@ -9,7 +9,7 @@ define(function(require) {
 
     var PostsCollection = Backbone.Collection.extend({
     	model: PostModel,
-    	comparator: "date",  //http://backbonejs.org/#Collection-comparator
+    	//comparator: "date",  //http://backbonejs.org/#Collection-comparator
     	url: "http://blog4.apiary.io/posts"
     	
 

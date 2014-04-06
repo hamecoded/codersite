@@ -20,17 +20,17 @@ define(function(require) {
     	 * @return {PostsListView} [description]
     	 */
 		render: function () {
-			var $el= this.$el; //initially as a detached DOM element
-
+			var self = this;
 			// DOM insert the ListView template
 			dust.render("posts",{},function(err,out){
-			    $el.html(out);
+			    self.$el.html(out); // $el is an attached DOM element
+	
+				// The following solution will add each post to the DOM seperatly 
+				self.$el.find(".posts").hide(); //save reflows and repaints
+				self.collection.forEach(self.add, self);
+				self.$el.find(".posts").show();
 			});
 
-			// The following solution will add each post to the DOM seperatly 
-			this.$el.find(".posts").hide(); //save reflows and repaints
-			this.collection.forEach(this.add, this);
-			this.$el.find(".posts").show();
     		
 			return this;
 		},

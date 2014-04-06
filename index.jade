@@ -5,10 +5,10 @@ html(lang="en")
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
 
     title= "Oded Sagir Blog"    
-    link(href="bower_components/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
+    link(href="/bower_components/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
     //http://bootswatch.com/amelia/
-    //link(href="css/bootstrap_themes/amelia.css", rel="stylesheet")
-    link(href="css/app.css", rel="stylesheet")
+    //link(href="/css/bootstrap_themes/amelia.css", rel="stylesheet")
+    link(href="/css/app.css", rel="stylesheet")
   body
     
     include blog-home.html
@@ -16,5 +16,5 @@ html(lang="en")
     
     script(type="text/javascript").
       var require = { baseUrl: "./" };
-    script(type="text/javascript", data-main="js/app.js", src="bower_components/requirejs/require.js")
+    script(type="text/javascript", data-main="/js/app.js", src="/bower_components/requirejs/require.js")
    

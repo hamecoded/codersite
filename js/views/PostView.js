@@ -14,15 +14,23 @@ define(function(require) {
     	events: {
     		"click *": "testDomViewWiring"
     	},
+    	initialize: function (options) {
+    		var summaryView = this.hasOwnProperty("collection");
+    		this.model.set("summaryView", summaryView);
+    		if(!summaryView){
+	    		this.listenTo( this.model, "sync", this.render);
+	    		this.model.fetch({reset: true});
+    		}
+    	},
     	render: function() {
-    		var $el= this.$el; //detached DOM element
+    		var self= this; 
 			dust.render("post",this.model.toJSON(),function(err,out){
-			    $el.html(out);
+			    self.$el.html(out); //detached DOM element
 			});
 			return this;
 		},
 		testDomViewWiring: function () {
-			alert(this.model.get('title'));
+			//alert(this.model.get('title'));
 		}
 
     });
