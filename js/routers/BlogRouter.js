@@ -32,9 +32,10 @@ define(["require",
 		},
 		// Handlers
 		home: function(){
-			this.navigate("/posts", {trigger: true});
+			this.navigate("/posts", {trigger: true, replace: true});
 		},
     	showPostsList: function () {
+    		console.log("routed to posts list");
 			//Set Data       			
 			var posts= new PostsCollection();
 
@@ -53,10 +54,10 @@ define(["require",
 				el: ".container .row .col-lg-8",
     			model: postModel
     		}); 
-    		
     	}
 
     });
+			
    
     return BlogRouter; 
 });
