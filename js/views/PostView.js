@@ -17,6 +17,8 @@ define(function(require) {
     	initialize: function (options) {
     		var summaryView = this.hasOwnProperty("collection");
     		this.model.set("summaryView", summaryView);
+
+    		// in the context of a collection we won't want to re-render the post the postListView has already done so
     		if(!summaryView){
 	    		this.listenTo( this.model, "sync", this.render);
 	    		this.model.fetch({reset: true});

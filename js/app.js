@@ -34,7 +34,7 @@ require(["/js/config.js"], function (baseConfig) {
 				$(document).on('click', 'a:not([data-bypass])', function (evt) {
 					var href = $(this).attr('href');
 					var protocol = this.protocol + '//';
-
+					//TODO: replace hash calls with absolute path
 					if (href.slice(protocol.length) !== protocol) {
 					  evt.preventDefault();
 					  router.navigate(href, true);
