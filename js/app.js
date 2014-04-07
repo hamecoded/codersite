@@ -6,13 +6,13 @@ require(["/js/config.js"], function (baseConfig) {
 
 
     //common requires to be loaded now that the require paths have been set
-    require(["marionette","bootstrap"], function(){
+    require(["require", "marionette", "bootstrap"], function(require){
+    	window.Mustache = require("mustache"); //http://stackoverflow.com/questions/16556419/requirejs-not-loading-mustache-window-object
 
     	//handle ajax loading genericly
 	    $(document).ajaxSend(function(event, request, settings) {
 		    $('#loading-indicator').show();
 		});
-
 		$(document).ajaxComplete(function(event, request, settings) {
 		    $('#loading-indicator').hide();
 		});

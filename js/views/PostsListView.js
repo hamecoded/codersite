@@ -8,8 +8,10 @@
 define(function(require) {
 
 	var PostView= require("views/PostView");  //http://requirejs.org/docs/1.0/docs/api.html#modulenotes-console
-   
+    var template = require( "text!templates/posts.html");
+
     var PostsListView = Backbone.View.extend({
+    	template: template,
     	initialize: function (options) {
     		this.listenTo( this.collection, "reset", this.render);
     		this.collection.fetch({reset: true});
@@ -20,18 +22,15 @@ define(function(require) {
     	 * @return {PostsListView} [description]
     	 */
 		render: function () {
-			var self = this;
 			// DOM insert the ListView template
-			dust.render("posts",{},function(err,out){
-			    self.$el.html(out); // $el is an attached DOM element
-	
-				// The following solution will add each post to the DOM seperatly 
-				self.$el.find(".posts").hide(); //save reflows and repaints
-				self.collection.forEach(self.add, self);
-				self.$el.find(".posts").show();
-			});
+			var rendered = Mustache.to_html(this.template, {}); 
+			this.$el.html(rendered); //detached DOM element
+			
+			// DOM insert each post item
+			this.$el.hide(); //save reflows and repaints
+			this.collection.forEach(this.add, this);
+			this.$el.show();
 
-    		
 			return this;
 		},
 		/**

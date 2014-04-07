@@ -2,15 +2,15 @@ define({
     paths:{
         // Libraries
         // ---------
-        "vendor":"/bower_components",
-        "underscore":"/bower_components/underscore/underscore",
-        "dust":"/bower_components/dustjs-linkedin/dist/dust-full",
-        "jquery":"/bower_components/jquery/dist/jquery",
-        "backbone":"/bower_components/backbone/backbone",
-        "backbone.wreqr":"/bower_components/backbone.wreqr/lib/backbone.wreqr",
-        "backbone.babysitter":"/bower_components/backbone.babysitter/lib/backbone.babysitter",
-        "marionette":"/bower_components/marionette/lib/backbone.marionette",
-        "bootstrap":"/bower_components/bootstrap/dist/js/bootstrap",
+        "vendor": "/bower_components",
+        "underscore": "/bower_components/underscore/underscore",
+        "mustache": "/bower_components/mustache/mustache",
+        "jquery": "/bower_components/jquery/dist/jquery",
+        "backbone": "/bower_components/backbone/backbone",
+        "backbone.wreqr": "/bower_components/backbone.wreqr/lib/backbone.wreqr",
+        "backbone.babysitter": "/bower_components/backbone.babysitter/lib/backbone.babysitter",
+        "marionette": "/bower_components/marionette/lib/backbone.marionette",
+        "bootstrap": "/bower_components/bootstrap/dist/js/bootstrap",
 
         // Require Modules to be used as pragmas
         // ---------
@@ -18,28 +18,25 @@ define({
 
         // Backbone Folder Structure
         // -------------------
-        "models":"/js/models",
-        "collections":"/js/collections",
-        "routers":"/js/routers",
-        "views":"/js/views",
-        "templates":"/templates",
+        "models": "/js/models",
+        "collections": "/js/collections",
+        "routers": "/js/routers",
+        "views": "/js/views",
+        "templates": "/templates",
     },
     shim:{
-        "dust":{
-            "exports":"dust"
-        },
         "underscore":{
             // Exports the global window._ object
-            "exports":"_"
+            "exports": "_"
         },
         "jquery":{
-            "exports":"$"
+            "exports": "$"
         },
         "backbone":{
-            "exports":"Backbone",
+            "exports": "Backbone",
             "deps":[
                 "underscore",
-                "dust"
+                "mustache"
             ]
         },
         "backbone.wreqr":{
@@ -49,7 +46,7 @@ define({
             "deps": ["backbone"]
         },
         "marionette":{
-            "exports":"Marionette",
+            "exports": "Marionette",
             "deps":[
                 "backbone",
                 "backbone.wreqr",
