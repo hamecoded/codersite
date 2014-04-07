@@ -1,5 +1,4 @@
 <!-- blog entry -->
-
 <h1><a href="/posts/{{id}}">{{title}}</a></h1>
 <p class="lead">by <a href="#">{{author}}</a></p>
 <hr>
@@ -11,11 +10,15 @@
 
 {{#summaryView}}
 <a class="btn btn-primary" href="/posts/{{id}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+<hr>	
 {{/summaryView}}
 
 {{^summaryView}}
 <p>{{content}}</p>
-{{/summaryView}}
-
 <hr>
-
+<!-- pager -->
+<ul class="pager">
+    <li class="previous"><a href="javascript:void(0)" data-bypass>&larr; Older</a></li>
+    <li class="next"><a href="javascript:void(0)" data-bypass>Newer &rarr;</a></li>
+</ul>
+{{/summaryView}}

@@ -27,9 +27,9 @@ define(function(require) {
 			this.$el.html(rendered); //detached DOM element
 			
 			// DOM insert each post item
-			this.$el.find(".posts").hide(); //save reflows and repaints
+			this.$el.hide(); //save reflows and repaints
 			this.collection.forEach(this.add, this);
-			this.$el.find(".posts").show();
+			this.$el.show();
 
 			return this;
 		},
