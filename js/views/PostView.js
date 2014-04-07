@@ -6,14 +6,12 @@
  */		
 define(function(require) {
    
-   	
+   	var template = require( "text!templates/post.html");
 
     var PostView = Backbone.View.extend({
+    	template: template,
     	tagName:  'li',
     	className: "post",
-    	events: {
-    		"click *": "testDomViewWiring"
-    	},
     	initialize: function (options) {
     		var summaryView = this.hasOwnProperty("collection");
     		this.model.set("summaryView", summaryView);
@@ -25,14 +23,9 @@ define(function(require) {
     		}
     	},
     	render: function() {
-    		var self= this; 
-			dust.render("post",this.model.toJSON(),function(err,out){
-			    self.$el.html(out); //detached DOM element
-			});
+    		var rendered = Mustache.to_html(this.template, this.model.toJSON()); 
+			this.$el.html(rendered); //detached DOM element
 			return this;
-		},
-		testDomViewWiring: function () {
-			//alert(this.model.get('title'));
 		}
 
     });

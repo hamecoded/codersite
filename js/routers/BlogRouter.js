@@ -5,31 +5,19 @@
  * @return Object         Class Object
  */		
 define(["require", 
-	"models/PostModel", "views/PostView", "text!templates/post.dust", 
-	"collections/PostsCollection", "views/PostsListView", "text!templates/posts.dust"], 
+	"models/PostModel", "views/PostView", 
+	"collections/PostsCollection", "views/PostsListView"], 
 	function (require, 
-		PostModel, PostView, postTmpl, 
-		PostsCollection,  PostsListView, postsTmpl) {
+		PostModel, PostView, 
+		PostsCollection,  PostsListView ) {
    
-	//preload post related templates 
-	var compiled = dust.compile(postTmpl, "post");
-	dust.loadSource(compiled);
-			
-	compiled = dust.compile(postsTmpl, "posts");
-	dust.loadSource(compiled);
-
+	
     var BlogRouter = Backbone.Router.extend({
     	routes: {
     		"": "home",
     		"posts(/)": "showPostsList",
     		"posts/:id": "showPost"
     	},
-		initialize: function(options){
-
-		},
-		execute: function(callback, args) {
-		 	Backbone.Router.prototype.execute.call(this,callback, args);
-		},
 		// Handlers
 		home: function(){
 			this.navigate("/posts", {trigger: true, replace: true});
