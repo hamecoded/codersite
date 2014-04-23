@@ -1,5 +1,6 @@
 define(function(require) {
-   
+    "use strict";
+    
     var PostModel = Backbone.Model.extend({
     	defaults: {
     		title: "no title",

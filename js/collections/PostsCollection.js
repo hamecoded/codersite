@@ -4,7 +4,8 @@
  * @return Object         Class Object
  */
 define(function(require) {
-   
+    "use strict";
+    
    	var PostModel= require("models/PostModel");
 
     var PostsCollection = Backbone.Collection.extend({

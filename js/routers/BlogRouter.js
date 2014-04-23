@@ -10,9 +10,13 @@ define(["require",
 	function (require, 
 		PostModel, PostView, 
 		PostsCollection,  PostsListView ) {
-   
+    "use strict";
 	
     var BlogRouter = Backbone.Router.extend({
+    	// reuse postlist collection and view while navigating
+    	// unlike removing a single post view when paginating
+    	posts: null, //PostsCollection
+    	postsList: null, //PostsListView
     	routes: {
     		"": "home",
     		"posts(/)": "showPostsList",
@@ -25,18 +29,29 @@ define(["require",
 		home: function(){
 			this.navigate("/posts", {trigger: true, replace: true});
 		},
-		// TODO: remove listview when navigating or reuse
     	showPostsList: function () {
     		console.log("routed to posts list");
-			//Set Data       			
-			var posts= new PostsCollection();
+			//Set Data   
+			if (!this.posts) {
+				this.posts= new PostsCollection();
+			}    			
 
 			//Set View
    			$("#main .col-lg-8").html("<div class='postsList'></div>");
-			var postList= new PostsListView({
-				el: "#main .col-lg-8 .postsList",
-				collection: posts
-			});
+			if (!this.postsList) {
+				this.postsList= new PostsListView({
+					el: "#main .col-lg-8 .postsList",
+					collection: this.posts
+				});				
+			}else{
+				/**
+				 * before rerendering the PostsListView we need first to reassociate
+				 * it with an existing DOM element
+				 */
+				this.postsList
+					.setElement("#main .col-lg-8 .postsList")
+					.render();
+			}
     	},
     	showPost: function (id) {
     		console.log("routed to post with id " + id);
@@ -52,24 +67,36 @@ define(["require",
     		// we'll only listen once because we'll navigate elsewhere
     		this.listenToOnce(postView, "postPagination", this.postPagination);
     	},
+    	/**
+    	 * will be called upon paginating to a newer or older post
+    	 * the function will perform navigation to the next post url (be it newer or older)
+    	 * @param  {string} postId currently displayed post id
+    	 * @param  {boolean} newer  whether to display an older or newer post
+    	 */
     	postPagination: function (postId, newer) {
-    		// load post collection if we haven't done so, so we'll no the date-order of ids 
     		var self = this;
     		if (this.posts){
-    			var arrId = this.posts.pluck('id'),
-    				nextPostIdIndex= (newer ? -1 : 1) + _.indexOf(arrId, postId),
-    				nextPostId = arrId[nextPostIdIndex];
-				self.navigate("/posts/" + (nextPostId || ""), {trigger: true, replace: false});
+    			this._navigateToNextPost(postId, newer);
     		}else{
+	    		// load post collection if we haven't done so, so we'll no the date-order of ids to be able to paginate between posts
 	    		this.posts = new PostsCollection();
 	    		this.posts.once('sync', function(e){
-	    			var arrId = this.pluck('id'),
-	    				nextPostIdIndex= (newer ? -1 : 1) + _.indexOf(arrId, postId),
-	    				nextPostId = arrId[nextPostIdIndex];
-					self.navigate("/posts/" + (nextPostId || ""), {trigger: true, replace: false});
+	    			self._navigateToNextPost(postId, newer);
 	    		});
 	    		this.posts.fetch();    			
     		}
+    	},
+    	/**
+    	 * plucks the sorted collection for ids only and find the next post id and trigger navigation
+    	 * @param  {[type]} postId [description]
+    	 * @param  {[type]} newer  [description]
+    	 * @return {[type]}        [description]
+    	 */
+    	_navigateToNextPost: function (postId, newer){
+			var arrOfIds = this.posts.pluck('id'),
+				nextPostIdIndex= (newer ? -1 : 1) + _.indexOf(arrOfIds, postId),
+				nextPostId = arrOfIds[nextPostIdIndex];
+			this.navigate("/posts/" + (nextPostId || ""), {trigger: true, replace: false});
     	}
 
     });

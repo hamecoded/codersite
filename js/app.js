@@ -6,7 +6,7 @@ require(["/js/config.js"], function (baseConfig) {
 
 
     //common requires to be loaded now that the require paths have been set
-    require(["require", "marionette", "bootstrap"], function(require){
+    require(["require", "backbone", "bootstrap"], function(require){
     	window.Mustache = require("mustache"); //http://stackoverflow.com/questions/16556419/requirejs-not-loading-mustache-window-object
 
     	//handle ajax loading genericly

@@ -6,6 +6,7 @@
  * @return Object         Class Object
  */		
 define(function(require) {
+	"use strict";
 
 	var PostView= require("views/PostView");  //http://requirejs.org/docs/1.0/docs/api.html#modulenotes-console
     var template = require( "text!templates/posts.html");
@@ -21,7 +22,7 @@ define(function(require) {
     	 * partial renders need be considered on a case by case basis 
     	 * @return {PostsListView} [description]
     	 */
-		render: function () {
+		render: function (collection, options) {
 			// DOM insert the ListView template
 			var rendered = Mustache.to_html(this.template, {}); 
 			this.$el.html(rendered); //detached DOM element
@@ -42,7 +43,7 @@ define(function(require) {
 		add: function (post, index, arr) {
 			var postView = new PostView({
 				model: post,
-				collection : this.collection
+				collection: this.collection
 			});
 			postView.render();
 			this.$el.find(".posts").append(postView.el);

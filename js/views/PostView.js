@@ -5,7 +5,8 @@
  * @return Object         Class Object
  */		
 define(function(require) {
-   
+    "use strict";
+
    	var template = require( "text!templates/post.html");
 
     var PostView = Backbone.View.extend({
@@ -33,7 +34,6 @@ define(function(require) {
     	render: function() {
     		var rendered = Mustache.to_html(this.template, this.model.toJSON()); 
 			this.$el.html(rendered); //detached DOM element
-			//this.setElement()
 			return this;
 		},
 		// Handlers
