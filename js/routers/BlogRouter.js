@@ -44,10 +44,8 @@ define(["require",
 					collection: this.posts
 				});				
 			}else{
-				/**
-				 * before rerendering the PostsListView we need first to reassociate
-				 * it with an existing DOM element
-				 */
+				// before rerendering the PostsListView we need first to reassociate
+				// it with an existing DOM element
 				this.postsList
 					.setElement("#main .col-lg-8 .postsList")
 					.render();
@@ -65,7 +63,7 @@ define(["require",
     		}); 
 
     		// we'll only listen once because we'll navigate elsewhere
-    		this.listenToOnce(postView, "postPagination", this.postPagination);
+    		this.listenToOnce(postView, "postPagination", this._postPagination);
     	},
     	/**
     	 * will be called upon paginating to a newer or older post
@@ -73,7 +71,7 @@ define(["require",
     	 * @param  {string} postId currently displayed post id
     	 * @param  {boolean} newer  whether to display an older or newer post
     	 */
-    	postPagination: function (postId, newer) {
+    	_postPagination: function (postId, newer) {
     		var self = this;
     		if (this.posts){
     			this._navigateToNextPost(postId, newer);
