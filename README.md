@@ -1,5 +1,6 @@
-Commands to run under project root directory
+Installation and Development
 ====
+**Commands to run under project root directory**
 ### setup
 `npm install`
 
