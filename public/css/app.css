@@ -1,0 +1,35 @@
+/* line 3, ../sass/app.scss */
+body {
+  margin-top: 100px;
+  /* 100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
+}
+
+/* line 7, ../sass/app.scss */
+footer {
+  margin: 50px 0;
+}
+
+/* line 12, ../sass/app.scss */
+#loading-indicator {
+  position: absolute;
+  left: -2px;
+  top: 16px;
+}
+
+@media (min-width: 768px) {
+  /* line 18, ../sass/app.scss */
+  #loading-indicator {
+    left: -20px;
+  }
+}
+/* line 24, ../sass/app.scss */
+.navbar-header {
+  position: relative;
+}
+
+/* line 28, ../sass/app.scss */
+ul.posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

@@ -14,20 +14,17 @@ poet.init().then(function () {
   // ready to go!
 });
 
-/*var env = process.env.NODE_ENV || 'development';
-if ('development' == env) {
-}*/
+var env = process.env.NODE_ENV || 'development';
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.set("view options", { layout: false }); 
 app.engine('.html', engines.jade);
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public'));
 
-app.get('*', function (req, res) {
-    res.sendfile(__dirname + '/index.html');
+app.get('/posts/*', function (req, res) {
+    res.sendfile(__dirname + '/public/index.html');
 });
-app.get('/poet/*', function (req, res) { res.render('index'); });
+app.get('/poet', function (req, res) { res.render('index'); });
 
-
-app.listen(8088);
+app.listen('development' == env ? 8088 : 80);

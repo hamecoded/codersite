@@ -20,3 +20,7 @@ Installation and Development
 ### apply poet patch
 https://github.com/jsantell/poet/issues/77
 
+### debugging node
+https://github.com/node-inspector/node-inspector	
+`npm install -g node-inspector`
+`node-debug -p 5555 server.js`
