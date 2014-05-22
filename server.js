@@ -1,37 +1,33 @@
-// var connect = require('connect');
-// connect.createServer(
-//     connect.static(__dirname)
-// ).listen(8088);
-// 
-// 
-
-
-// http://stackoverflow.com/questions/16966321/how-to-properly-use-html5-pushstate-in-backbone-js
-// app.configure(function () {
-
-//   // static files
-//   app.use(express.static(__dirname + '/'));
-
-//   // default html file (with any request)
-//   app.use(function (req, res) {
-//     var contents = fs.readFileSync(__dirname + '/index.html');
-//     res.send(contents.toString());
-//   });
-
-// });
-
-
 var express = require('express'),
-        app = express();
+        app = express(),
+        engines = require('consolidate'),
+        Poet = require('poet');
 
 
-var env = process.env.NODE_ENV || 'development';
+var poet = Poet(app, {
+  posts: './_posts/',
+  postsPerPage: 5,
+  metaFormat: 'json'
+});
+
+poet.init().then(function () {
+  // ready to go!
+});
+
+/*var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
-	app.use(express.static(__dirname + '/'));
-}
+}*/
+
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+app.set("view options", { layout: false }); 
+app.engine('.html', engines.jade);
+app.use(express.static(__dirname + '/'));
 
 app.get('*', function (req, res) {
     res.sendfile(__dirname + '/index.html');
 });
+app.get('/poet/*', function (req, res) { res.render('index'); });
+
 
 app.listen(8088);

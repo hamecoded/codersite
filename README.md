@@ -17,3 +17,6 @@ Installation and Development
 ### in production
 `NODE_ENV=production node server.js`
 
+### apply poet patch
+https://github.com/jsantell/poet/issues/77
+
