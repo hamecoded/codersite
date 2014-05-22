@@ -17,7 +17,7 @@ Installation and Development
 ### in production
 `NODE_ENV=production node server.js`
 
-### apply poet patch
+### apply poet patch for working with expressjs 4
 https://github.com/jsantell/poet/issues/77
 
 ### debugging node
