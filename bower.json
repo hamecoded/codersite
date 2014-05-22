@@ -19,10 +19,10 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.1.1",
-    "marionette": "~1.7.1",
-    "requirejs": "~2.1.11",
-    "requirejs-text": "~2.0.10",
-    "mustache": "~0.8.1"
+    "bootstrap": "latest",
+    "marionette": "latest",
+    "requirejs": "latest",
+    "requirejs-text": "latest",
+    "mustache": "latest"
   }
 }

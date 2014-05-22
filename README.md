@@ -14,3 +14,6 @@ Installation and Development
 `node server.js`
 
 
+### in production
+`NODE_ENV=production node server.js`
+

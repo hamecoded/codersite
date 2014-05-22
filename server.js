@@ -24,10 +24,11 @@
 var express = require('express'),
         app = express();
 
-app.configure(function(){
-	app.use(express.static(__dirname + '/'));
-});
 
+var env = process.env.NODE_ENV || 'development';
+if ('development' == env) {
+	app.use(express.static(__dirname + '/'));
+}
 
 app.get('*', function (req, res) {
     res.sendfile(__dirname + '/index.html');
