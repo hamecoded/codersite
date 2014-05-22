@@ -22,7 +22,7 @@ app.set("view options", { layout: false });
 app.engine('.html', engines.jade);
 app.use(express.static(__dirname + '/public'));
 
-app.get('/posts/*', function (req, res) {
+app.get('/posts', function (req, res) {
     res.sendfile(__dirname + '/public/index.html');
 });
 app.get('/poet', function (req, res) { res.render('index'); });
