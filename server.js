@@ -7,7 +7,10 @@ var express = require('express'),
 var poet = Poet(app, {
   posts: './_posts/',
   postsPerPage: 5,
-  metaFormat: 'json'
+  metaFormat: 'json',
+  readMoreLink: function(post){
+  	return '<a href="' + post.url + '" class="btn btn-primary">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
+  }
 });
 
 poet.init().then(function () {

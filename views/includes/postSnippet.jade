@@ -2,10 +2,19 @@ div.post
   h1
     a(href=post.url)
       = post.title
-  span.date #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
-  div.post.content
-    != post.preview
-  div.tags
-    - each tag in post.tags
-      a(href=tagUrl(tag))
-        span.label.label-info #{tag}
+  //-p.lead="by " 
+    a(href="#")=post.author
+  //-hr
+  p.date
+    span.glyphicon.glyphicon-time=" Posted on "+ post.date.getDate() + "/" + (post.date.getMonth()+1) + "/" + post.date.getFullYear()
+    span.tags.pull-right
+      - each tag in post.tags
+        a(href=tagUrl(tag),style="margin: 0 3px;")
+          span.label.label-info #{tag}
+  hr
+  if post.thumbnail
+    img.img-responsive(src=post.thumbnail)
+    hr
+  p
+    !=post.preview
+
